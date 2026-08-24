@@ -642,6 +642,78 @@
     @media (max-width: 720px) {
       .projects-grid { grid-template-columns: 1fr; }
     }
+    /* BRANDING */
+    .branding-wrap {
+      width: 100%;
+      padding: 0 5vw 6rem;
+    }
+    .branding-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3rem;
+    }
+    .branding-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 400;
+      color: var(--navy);
+    }
+    .branding-feature {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      background: var(--bg-white);
+      border: 0.5px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+    }
+    .branding-feature:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(26,26,94,0.10);
+    }
+    .branding-feature-cover {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #e8e6e0, #d4d0c8);
+    }
+    .branding-feature-body { padding: 3rem; }
+    .branding-feature-meta {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .branding-feature-title {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 3vw, 34px);
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .branding-feature-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .branding-feature-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.75rem; }
+    .branding-feature-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    @media (max-width: 720px) {
+      .branding-feature { grid-template-columns: 1fr; }
+      .branding-feature-body { padding: 1.75rem; }
+    }
     /* EXPERIENCE */
     .experience-wrap {
       width: 100%;
@@ -691,9 +763,9 @@
     }
     .about-photo {
       width: 100%;
-      aspect-ratio: 1/1;
+      aspect-ratio: 4/5;
       object-fit: cover;
-      object-position: center 25%;
+      object-position: center 8%;
       border-radius: 18px;
     }
     .about-right { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -1085,7 +1157,7 @@
       .experience-wrap { padding: 4rem 5vw; }
       .experience-item { grid-template-columns: 1fr; gap: 0.4rem; }
       .about-wrap { grid-template-columns: 1fr; padding: 4rem 5vw; gap: 2rem; }
-      .about-photo { aspect-ratio: 1/1; max-width: 300px; margin: 0 auto; }
+      .about-photo { height: auto; min-height: 0; aspect-ratio: 1/1; max-width: 300px; margin: 0 auto; }
       .beyond-wrap { padding: 4rem 5vw; }
       .beyond-grid { grid-template-columns: 1fr; }
       .contact-wrap { flex-direction: column; align-items: flex-start; gap: 2rem; }
@@ -1105,8 +1177,9 @@
     <button class="nav-back" id="nav-back" onclick="showPortfolio()">← Back to projects</button>
     <ul class="nav-links" id="nav-links">
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
+      <li><a href="#branding">Branding</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
     </ul>
     <a href="https://www.linkedin.com/in/martina-nogueira-da-gama-adegas/" class="nav-cta" target="_blank">Get in touch</a>
   </nav>
@@ -1213,12 +1286,6 @@
           <img src="iconsardinescape.jpg" alt="Sardine Scape" />
           <span class="app-icon-name">Sardine Scape</span>
         </a>
-        <!-- Product Sessions temporarily hidden — keep structure for later re-enable
-        <a class="app-icon-item" href="https://apps.apple.com/br/app/product-sessions/id6795209380?mt=12" target="_blank">
-          <img src="iconproductsession.svg" alt="Product Sessions" />
-          <span class="app-icon-name">Product Sessions</span>
-        </a>
-        -->
         <!-- duplicate for seamless loop -->
         <a class="app-icon-item" href="https://apps.apple.com/br/app/avo-tracker/id6746510080" target="_blank">
           <img src="iconavo.png" alt="AvoTracker" />
@@ -1236,12 +1303,6 @@
           <img src="iconsardinescape.jpg" alt="Sardine Scape" />
           <span class="app-icon-name">Sardine Scape</span>
         </a>
-        <!-- Product Sessions temporarily hidden — keep structure for later re-enable
-        <a class="app-icon-item" href="https://apps.apple.com/br/app/product-sessions/id6795209380?mt=12" target="_blank">
-          <img src="iconproductsession.svg" alt="Product Sessions" />
-          <span class="app-icon-name">Product Sessions</span>
-        </a>
-        -->
       </div>
     </div>
   </div>
@@ -1314,30 +1375,65 @@
         </div>
       </a>
 
-      <!-- Product Sessions temporarily hidden — keep structure for later re-enable
-      <a class="project-card" href="productsessions.html">
-        <img class="project-card-cover" src="coverproductsessions.png" alt="Product Sessions preview" />
-        <div class="project-card-body">
-          <p class="project-meta">macOS App · Productivity &nbsp;·&nbsp; 2026</p>
-          <h3 class="project-name">Product Sessions</h3>
-          <p class="project-desc">An AI-powered tool for analyzing usability test recordings. It automatically transcribes sessions, identifies patterns in user behavior, and generates structured UX reports with evidence-backed findings — all processed locally on the Mac for privacy.</p>
-          <div class="project-tags">
-            <span class="ptag">AI</span>
-            <span class="ptag">UX Research</span>
-            <span class="ptag">Product Design</span>
-            <span class="ptag">macOS</span>
-          </div>
-        </div>
-      </a>
-      -->
-
     </div>
+  </div>
+
+  <!-- BRANDING -->
+  <div class="branding-wrap" id="branding">
+    <div class="branding-header">
+      <h2>Branding</h2>
+      <p class="section-tag">/ identity</p>
+    </div>
+    <a class="branding-feature" href="esportemais.html">
+      <img class="branding-feature-cover" src="coveresportemais.png" alt="Esporte Mais brand identity" onerror="this.style.display='none'" />
+      <div class="branding-feature-body">
+        <p class="branding-feature-meta">Brand Identity · Rebranding &nbsp;·&nbsp; 2024</p>
+        <h3 class="branding-feature-title">Esporte Mais</h3>
+        <p class="branding-feature-desc">A full visual identity for Associação Esporte+, a nonprofit transforming lives through parasport — logo system, brand guide, and applications, built end-to-end in Illustrator.</p>
+        <div class="branding-feature-tags">
+          <span class="ptag">Logo System</span>
+          <span class="ptag">Brand Guide</span>
+          <span class="ptag">Illustrator</span>
+        </div>
+        <span class="branding-feature-link">View case study →</span>
+      </div>
+    </a>
   </div>
 
   <!-- QUOTE -->
   <div class="quote-wrap">
     <blockquote>"Design is where strategy<br>and empathy meet."</blockquote>
     <p class="quote-attr">— Debbie Millman</p>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="about-wrap" id="about">
+    <img class="about-photo" src="photo.jpg" alt="Martina Gama" />
+    <div class="about-right">
+      <div>
+        <p class="section-tag">/ about me</p>
+        <h2>Martina Gama</h2>
+        <p>Product Designer with 4 years of experience creating digital experiences that connect user needs, business goals and product strategy. I work closely with stakeholders, clients and engineers, contributing to product decisions and translating complex challenges into intuitive and effective solutions.
+
+<br>Alongside product work, I've built visual identity and brand systems — from rebranding processes to applied brand materials — with a structured, systemic approach to how visual language is organized and scaled across formats.
+
+I enjoy collaborating with multidisciplinary teams to design experiences that are both valuable for users and impactful for businesses.</p>
+      </div>
+      <div class="about-details">
+        <div>
+          <span class="detail-key">location</span>
+          <span class="detail-val">Brasil</span>
+        </div>
+        <div>
+          <span class="detail-key">education</span>
+          <span class="detail-val">Bachelor's in Communication Design — PUCRS, 2025</span>
+        </div>
+        <div>
+          <span class="detail-key">currently</span>
+          <span class="detail-val">Apple Developer Academy Porto Alegre</span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- EXPERIENCE -->
@@ -1348,53 +1444,44 @@
     </div>
 
     <div class="experience-item">
-      <span class="exp-period">2025 — Now</span>
+      <span class="exp-period">2025 — Present</span>
       <div>
         <div class="exp-header">
           <h3 class="exp-role">Product Designer</h3>
-          <p class="exp-company">Apple Developer Academy</p>
+          <p class="exp-company">Apple Developer Academy — Porto Alegre, Brazil</p>
         </div>
-        <p class="exp-desc">•Two-year multidisciplinary Apple program focused on digital product design, development, and innovation; <br>•Delivered production-ready UI for Apple platform products, building structured, component-based Figma files and refining designs through to polished final states; <br>•Designed accessible interfaces integrated with Apple accessibility features , VoiceOver, Voice Control, and Dynamic Type and applied WCAG contrast checks for inclusive, standards-compliant experiences; <br>•Worked in agile Scrum teams as Product Owner and Scrum Master; collaborated directly with development, prototyping in Swift/SwiftUI and reviewing implemented builds against designs to close gaps.</p>
+        <p class="exp-desc">•Two-year multidisciplinary Apple program focused on digital product design, development, and innovation.
+<br>•Built design systems for iOS applications from the ground up: complete component libraries organized and named by family and variant, structured for clarity, reuse, and future implementation by other designers and developers.
+<br>•Delivered production-ready UI for Apple platform products, refining designs through to polished final states within those systems.
+<br>•Designed accessible interfaces integrated with Apple accessibility features, VoiceOver, Voice Control, and Dynamic Type, applying WCAG contrast checks for inclusive, standards-compliant experiences.
+<br>•Worked in agile Scrum teams as Product Owner and Scrum Master; collaborated directly with development, prototyping in Swift/SwiftUI and reviewing implemented builds against designs to close gaps.
+<br>•Designed applications across multiple Apple platforms (iOS, iPadOS, macOS, watchOS, visionOS) and managed their publishing on the App Store.</p>
       </div>
     </div>
 
     <div class="experience-item">
-      <span class="exp-period">jan 2024 — jan 2025</span>
+      <span class="exp-period">2024 — 2025</span>
       <div>
         <div class="exp-header">
-          <h3 class="exp-role">Product Designer</h3>
-          <p class="exp-company">Preto no Branco</p>
+          <h3 class="exp-role">UX/UI Designer Intern</h3>
+          <p class="exp-company">Preto no Branco Desenvolvimentos</p>
         </div>
-        <p class="exp-desc">•Led end-to-end digital product design, from problem definition to final UI delivery and development handoff, with multidisciplinary teams;
-<br>•Produced polished, consistent interfaces with well-structured components, applying and reinforcing design system standards across touchpoints;
+        <p class="exp-desc">•Led end-to-end digital product design, from problem definition to final UI delivery and development handoff, with multidisciplinary teams.
+<br>•Produced polished, consistent interfaces with well-structured components, applying and reinforcing design system standards across touchpoints.
 <br>•Delivered digital solutions for clients from early-stage entrepreneurs to large organisations such as Honda and VMI Security.</p>
       </div>
     </div>
-  </div>
 
-  <!-- ABOUT -->
-  <div class="about-wrap" id="about">
-    <img class="about-photo" src="photo.jpg" alt="Martina Gama" />
-    <div class="about-right">
+    <div class="experience-item">
+      <span class="exp-period">2022 — 2023</span>
       <div>
-        <p class="section-tag">/ about me</p>
-        <h2>Martina Gama</h2>
-        <p>Product Designer with 4 years of experience creating digital experiences that connect user needs, business goals and product strategy. I work closely with stakeholders, clients and engineers, contributing to product decisions and translating complex challenges into intuitive and effective solutions.</p>
-        <p>I enjoy collaborating with multidisciplinary teams to design experiences that are both valuable for users and impactful for businesses.</p>
-      </div>
-      <div class="about-details">
-        <div>
-          <span class="detail-key">location</span>
-          <span class="detail-val">Brasil</span>
+        <div class="exp-header">
+          <h3 class="exp-role">Design Intern</h3>
+          <p class="exp-company">Co.Lab &amp; Creative Industry Hub, Famecos (PUCRS)</p>
         </div>
-        <div>
-          <span class="detail-key">education</span>
-          <span class="detail-val">Design de Comunicação — PUCRS, 2025</span>
-        </div>
-        <div>
-          <span class="detail-key">currently</span>
-          <span class="detail-val">Apple Developer Academy Porto Alegre</span>
-        </div>
+        <p class="exp-desc">•Worked across brand-building projects, including rebranding processes and the visual unfolding of brand identity into applied materials and touchpoints.
+<br>•Designed website interfaces, visual identity, and branding systems for cultural and educational initiatives.
+<br>•Produced content and graphic material for events and social media, translating brand guidelines into consistent, on-brand communication across formats.</p>
       </div>
     </div>
   </div>

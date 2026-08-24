@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Sessions — Martina Gama</title>
+  <title>Esporte Mais — Martina Gama</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%23FBFBFB%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2743%27%20font-family%3D%27Snell%20Roundhand%2C%20Bradley%20Hand%2C%20cursive%2C%20serif%27%20font-size%3D%2728%27%20font-weight%3D%27700%27%20fill%3D%27%231a1a2e%27%20text-anchor%3D%27middle%27%3EMG%3C/text%3E%3C/svg%3E" />
   <style>
     @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/PlayfairDisplay.woff2') format('woff2'); }
@@ -71,8 +71,7 @@
 
     /* ── HERO PROJECT ── */
     .project-hero {
-      padding: 9rem 5vw 5rem;
-      border-bottom: 0.5px solid var(--border);
+      padding: 9rem 5vw 2rem;
     }
     .project-type {
       font-size: 11px;
@@ -131,21 +130,6 @@
       color: var(--navy-mid);
       font-weight: 500;
     }
-    .demo-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 2rem;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--navy);
-      text-decoration: none;
-      padding: 12px 24px;
-      border: 1px solid rgba(26,26,94,0.22);
-      border-radius: 40px;
-      transition: transform 0.2s, background 0.2s;
-    }
-    .demo-link:hover { transform: translateY(-2px); background: var(--navy); color: #fff; }
 
     /* ── COVER IMAGE ── */
     .project-cover {
@@ -157,7 +141,7 @@
     }
     .project-cover-placeholder {
       width: 100%;
-      aspect-ratio: 16/8;
+      aspect-ratio: 16/11;
       background: linear-gradient(135deg, #e8e6e0 0%, #d4d0c8 100%);
       display: flex;
       align-items: center;
@@ -165,14 +149,13 @@
       font-family: var(--font-hand);
       font-size: 24px;
       color: var(--muted);
-      margin-top: 86px;
+      margin-top: 0;
     }
 
     /* ── SECTIONS ── */
     .sec {
       padding: 0 5vw;
       margin-top: 86px;
-      border-bottom: 0.5px solid var(--border);
     }
     .sec-inner {
       display: grid;
@@ -206,8 +189,17 @@
       max-width: 680px;
     }
     .sec-content p:last-child { margin-bottom: 0; }
+    .sec-content .todo {
+      font-style: italic;
+      color: var(--navy-mid);
+      background: rgba(26,26,94,0.05);
+      border-left: 2px solid var(--navy-mid);
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      max-width: 680px;
+    }
 
-    /* Key Features */
+    /* Feature cards (reused for Logo System) */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -246,80 +238,90 @@
       max-width: none;
     }
 
-    /* Product Process */
-    .process-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 0.5rem;
-    }
-    .process-step {
+    /* Color swatches */
+    .swatch-grid {
       display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 1.5rem;
-      align-items: start;
-      padding: 1.5rem 0;
-      border-bottom: 0.5px solid var(--border);
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin: 1rem 0 1.5rem;
+      max-width: 680px;
     }
-    .process-step:first-child { border-top: 0.5px solid var(--border); }
-    .step-num {
-      font-family: var(--font-hand);
-      font-size: 20px;
-      color: var(--navy);
-      opacity: 0.25;
-      padding-top: 2px;
+    .swatch-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--bg-white);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.25rem;
     }
-    .step-body h3 {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 4px;
+    .swatch-chip {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
     }
-    .step-body p {
-      font-size: 13px;
+    .swatch-info { display: flex; flex-direction: column; gap: 4px; }
+    .swatch-info strong { font-size: 14px; color: var(--navy); font-weight: 500; }
+    .swatch-info span { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+    /* Placeholder image grid (Applications / File Structure — swap for <img> once assets exist) */
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .result-ph {
+      aspect-ratio: 4/3;
+      border: 1px dashed rgba(26,26,94,0.25);
+      border-radius: 14px;
+      background: rgba(26,26,94,0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      font-size: 12px;
+      font-style: italic;
       color: var(--muted);
-      line-height: 1.7;
-      margin: 0;
-      max-width: none;
     }
-    .step-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
-    .steptag {
-      font-size: 10px;
-      padding: 3px 10px;
-      border-radius: 20px;
-      background: rgba(26,26,94,0.06);
-      color: var(--navy-mid);
-      font-weight: 500;
+    .result-ph.wide { grid-column: 1 / -1; aspect-ratio: 16/7; }
+    .result-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: center 15%;
+      border-radius: 14px;
+      display: block;
+    }
+    .result-img.wide { grid-column: 1 / -1; aspect-ratio: 3/2; max-height: 520px; object-position: center 20%; }
+
+    .trio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+    .trio-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .trio-grid { grid-template-columns: 1fr; }
     }
 
-    /* Result — single image left, text frame right, aligned */
-    .result-layout {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 3.5rem;
-      align-items: center;
-    }
-    .result-images {
+    .miv-spread {
       width: 100%;
       border-radius: 14px;
       display: block;
-      object-fit: cover;
+      margin-top: 1.5rem;
+      box-shadow: 0 10px 32px rgba(26,26,94,0.10);
     }
-    .result-text h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(24px, 3vw, 38px);
-      font-weight: 400;
-      color: var(--navy);
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-    .result-text p {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.9;
-      margin-bottom: 1rem;
-    }
-    .result-text p:last-child { margin-bottom: 0; }
 
     /* ── OTHER PROJECTS ── */
     .other-projects {
@@ -365,13 +367,6 @@
     .other-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 16px 40px rgba(26,26,94,0.09);
-    }
-    .other-card-cover {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      display: block;
-      background: linear-gradient(135deg, #e8e6e0, #d4d0c8);
     }
     .other-card-cover-placeholder {
       width: 100%;
@@ -433,13 +428,17 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .project-meta-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .project-meta-grid { grid-template-columns: repeat(2, auto); gap: 2rem; }
       .sec-inner { grid-template-columns: 1fr; gap: 1.5rem; }
       .sec-label { position: static; }
       .features-grid { grid-template-columns: 1fr; }
-      .result-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+      .swatch-grid { grid-template-columns: 1fr; }
+      .result-grid { grid-template-columns: 1fr; }
       .other-grid { grid-template-columns: 1fr; }
       nav .nav-cta { display: none; }
+    }
+    @media (max-width: 480px) {
+      .project-meta-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -453,189 +452,175 @@
 
   <!-- PROJECT HERO -->
   <header class="project-hero">
-    <p class="project-type">/ macOS App · Product Design · AI</p>
-    <h1>Product Sessions</h1>
-    <p class="project-intro-text">A native macOS app that turns recorded usability tests into structured UX reports — 100% processed on-device, with no cloud dependency. It records, transcribes, and analyzes sessions with AI, then turns findings into trackable action items that sync straight to Jira, closing the loop between research and execution.</p>
+    <p class="project-type">/ Brand Identity · Rebranding · 2024</p>
+    <h1>Esporte Mais</h1>
+    <p class="project-intro-text">A full visual identity for Associação Esporte+, a nonprofit using parasport to transform lives — rebranding</p>
     <div class="project-meta-grid">
       <div class="meta-item">
-        <span class="meta-key">Year</span>
-        <span class="meta-val">2026</span>
+        <span class="meta-key">Client</span>
+        <span class="meta-val">Associação Esporte+ (nonprofit)</span>
       </div>
       <div class="meta-item">
         <span class="meta-key">Role</span>
-        <span class="meta-val">Designer & Developer</span>
+        <span class="meta-val">Brand & Visual Identity Design</span>
       </div>
       <div class="meta-item">
-        <span class="meta-key">Platform</span>
-        <span class="meta-val">macOS</span>
+        <span class="meta-key">Tools</span>
+        <span class="meta-val">Illustrator</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Deliverables</span>
+        <span class="meta-val tags">
+          <span class="mtag">Logo System</span>
+          <span class="mtag">Brand Guide</span>
+          <span class="mtag">Applications</span>
+        </span>
       </div>
     </div>
   </header>
 
   <!-- COVER -->
   <div class="project-cover-placeholder">
-    <img src="coverproductsessions.png" alt="Product Sessions cover" style="width:100%;height:100%;object-fit:cover;display:block;" />
+    <img src="esportemaisatleta.png" alt="Esporte Mais brand cover" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;" onerror="this.style.display='none'" />
   </div>
 
-  <!-- CHALLENGE -->
+  <!-- 1. CONTEXT -->
   <section class="sec">
     <div class="sec-inner">
-      <p class="sec-label">/ Challenge</p>
+      <p class="sec-label">/ Context</p>
       <div class="sec-content">
-        <h2>What problem was solving?</h2>
-        <p>Synthesizing a usability test is manual, repetitive work: record the session, rewatch it to find the right moments, note down verbatim quotes as evidence, categorize problems, write recommendations, and finally turn all of that into tasks for the product team — usually by copy-pasting between a research doc and the work board.</p>
-        <p>Beyond the time cost, there's a real tension in using AI for this: test sessions contain real participants' speech, behavior, and sometimes sensitive data. Relying on a cloud service to summarize that means giving up control over where the data travels and lives — a trade-off not every researcher, or company, is willing to accept.</p>
-        <p>The goal was clear: shrink the gap between "session recorded" and "actionable insight," without sacrificing privacy or analysis quality.</p>
+        <h2>Bigger than one sport</h2>
+        <p>Associação Esporte+ is a nonprofit founded in 2015 that provides quality of life through sport and inclusion — working directly with 70 athletes and reaching over 200 people indirectly, across paralympic swimming, wheelchair rugby, seated volleyball, and archery.</p>
+        <p>The rebrand came from a specific tension: the old logo read as representing a single sport — swimming — and carried a wheelchair symbol, when the Association is about something broader than any one sport or any one story of disability. It's about the passion that unites staff and athletes to transform lives.</p>
+        <p>I led the rebranding end-to-end: from the initial concept through to a complete visual identity manual (MIV) built in Illustrator, covering logo system, color, typography, and applied materials.</p>
       </div>
     </div>
   </section>
 
-  <!-- SOLUTION -->
+  <!-- 2. RATIONALE -->
   <section class="sec">
     <div class="sec-inner">
-      <p class="sec-label">/ Solution</p>
+      <p class="sec-label">/ Rationale</p>
       <div class="sec-content">
-        <h2>How solved it?</h2>
-        <p>I designed and built a single pipeline that any source of data flows through — live recording, importing an existing recording, or pasting a transcript — and that always ends in the same place: a reliable transcript and a structured UX report.</p>
-        <p>The most important product decision was keeping the AI 100% on-device, using Apple's Foundation Models with a deterministic template fallback for when the model isn't available on the machine. That means analysis runs fully offline, with no API cost and no data exposure — the trade-off accepted in return was working within a smaller local model's context window, solved with a map-reduce strategy over the transcript.</p>
-        <p>The generated report never treats AI as an oracle: every finding is written as a hypothesis ("possible discoverability issue..."), never as fact, and is anchored to a timestamped quote — so the researcher can verify it, not just trust it blindly.</p>
+        <h2>Why this direction</h2>
+        <p>The strategy started from the concept, not the visuals: research into the Association itself and into how its own athletes understood their world — including their "grito de guerra," the athletes' own rallying cry — fed directly into the insight behind the new concept: <em>"a paixão paradesportiva nos transforma"</em> — the passion for parasport transforms us.</p>
+        <p>The primary signature was built around that idea: the strength of that passion, represented by a flame rendered in the brand's colors. The wordmark's typography carries the same logic — an italic slant for movement, letters joined together for the union and dynamism of sport, and rounded curves for balance and warmth.</p>
+        <p>Color stayed close to the original palette — blue, yellow, and white — with only the blue intensified to a deeper, more confident tone: recognizable, but sharper.</p>
       </div>
     </div>
   </section>
 
-  <!-- KEY FEATURES -->
+  <!-- 3. LOGO SYSTEM -->
   <section class="sec">
     <div class="sec-inner">
-      <p class="sec-label">/ Key Features</p>
+      <p class="sec-label">/ Logo System</p>
       <div class="sec-content">
+        <h2>Built as a system, not a single mark</h2>
+        <p>Rather than a single fixed image, the signature was documented as a full, ruled system — a defined minimum clear space, horizontal and vertical lockups in positive and negative, black &amp; white and monochromatic versions, and minimum-size rules for both print and digital, so the mark stays legible at every scale and on every background.</p>
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-num">01</div>
-            <h3>Live Dual Recording</h3>
-            <p>Captures microphone and system audio simultaneously, catching both the moderator/participant and what happens on the prototype's screen.</p>
+            <h3>Primary Signature</h3>
+            <p>The preferred version — flame + wordmark — used above all others whenever space allows.</p>
           </div>
           <div class="feature-card">
             <div class="feature-num">02</div>
-            <h3>Flexible Import</h3>
-            <p>Also accepts existing recordings or ready-made transcripts, via file or direct paste.</p>
+            <h3>Clear Space</h3>
+            <p>A defined minimum non-interference area around the mark, protecting it from crowding by other elements.</p>
           </div>
           <div class="feature-card">
             <div class="feature-num">03</div>
-            <h3>On-Device Transcription</h3>
-            <p>Uses Apple's native speech framework — audio never leaves the device.</p>
+            <h3>Horizontal & Vertical</h3>
+            <p>Both orientations documented in positive and negative, for light and dark backgrounds alike.</p>
           </div>
           <div class="feature-card">
             <div class="feature-num">04</div>
-            <h3>On-Device AI Analysis</h3>
-            <p>Generates a full report: executive summary with the session's "arc," sentiment and emotional moments, and task-by-task completion confidence.</p>
+            <h3>Black & White / Monochrome</h3>
+            <p>Single-color versions for constrained print contexts — engraving, stamping, single-ink runs.</p>
           </div>
           <div class="feature-card">
             <div class="feature-num">05</div>
-            <h3>Traceable Evidence</h3>
-            <p>Every finding carries the exact quote and moment it occurred, keeping the report fully auditable.</p>
+            <h3>Minimum Size</h3>
+            <p>Print: never smaller than 2cm (vertical) / 2.5cm (horizontal). Digital: never smaller than 56px (vertical) / 71px (horizontal).</p>
           </div>
           <div class="feature-card">
             <div class="feature-num">06</div>
-            <h3>Action Board & Jira</h3>
-            <p>A kanban board turns findings into tasks with auto-suggested priority, sent to Jira Cloud in one click with full context and no duplicates.</p>
+            <h3>Combined Signature</h3>
+            <p>The mark paired with a divider and program name — Projetos de Formação, Projetos de Alto Rendimento, Educação e Inclusão — for the Association's internal sub-programs.</p>
           </div>
         </div>
+        <img class="miv-spread" src="esportemaismiv.png" alt="Esporte+ visual identity manual — clear space and minimum size spread" />
       </div>
     </div>
   </section>
 
-  <!-- PRODUCT PROCESS -->
+  <!-- 4. COLOR & TYPE -->
   <section class="sec">
     <div class="sec-inner">
-      <p class="sec-label">/ Product Process</p>
+      <p class="sec-label">/ Color & Type</p>
       <div class="sec-content">
-        <div class="process-steps">
-
-          <div class="process-step">
-            <span class="step-num">01</span>
-            <div class="step-body">
-              <h3>Discovery</h3>
-              <p>Used Maze — the market reference for AI-powered usability reports — as a quality benchmark for the generated summaries, clarifying the level of "completeness" (audio context, emotional reading, session narrative) an AI report needed to be genuinely useful.</p>
-              <div class="step-tags">
-                <span class="steptag">Benchmark</span>
-                <span class="steptag">Market Research</span>
-              </div>
+        <h2>Palette and typography</h2>
+        <p>Two core colors carry the identity: a deep navy and a golden yellow, both specified across print and digital color spaces for consistent reproduction.</p>
+        <div class="swatch-grid">
+          <div class="swatch-card">
+            <span class="swatch-chip" style="background:#313183;"></span>
+            <div class="swatch-info">
+              <strong>Navy</strong>
+              <span>RGB 49 / 39 / 131 · CMYK 100 / 97 / 9 / 1 · PMS 280 C</span>
             </div>
           </div>
-
-          <div class="process-step">
-            <span class="step-num">02</span>
-            <div class="step-body">
-              <h3>Definition</h3>
-              <p>With the benchmark in hand, made the product decision that shaped the entire architecture: keep AI 100% on-device instead of replicating Maze's cloud approach. Privacy and offline use outweighed matching a cloud model's depth — and this became the guiding principle for every feature after.</p>
-              <div class="step-tags">
-                <span class="steptag">Product Strategy</span>
-              </div>
+          <div class="swatch-card">
+            <span class="swatch-chip" style="background:#F9D323;"></span>
+            <div class="swatch-info">
+              <strong>Gold</strong>
+              <span>RGB 249 / 211 / 35 · CMYK 4 / 14 / 89 / 0 · PMS 142 C</span>
             </div>
           </div>
+        </div>
+        <p>Typography follows the same logic as the mark itself: an italicized cut of the wordmark's typeface reinforces the sense of motion and constant cycles central to sport, while <strong>Museo Sans</strong> — in three weights (700, 500, and 300) — carries the rest of the manual, from headings down to body copy.</p>
+      </div>
+    </div>
+  </section>
 
-          <div class="process-step">
-            <span class="step-num">03</span>
-            <div class="step-body">
-              <h3>Report Structure Design</h3>
-              <p>Before writing a single AI prompt, defined the report's data model: findings always as hypothesis (never assertion), evidence always anchored to a timestamped quote, and per-task completion confidence — a structure designed to build trust, not blind acceptance.</p>
-              <div class="step-tags">
-                <span class="steptag">Information Architecture</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="process-step">
-            <span class="step-num">04</span>
-            <div class="step-body">
-              <h3>Build</h3>
-              <p>Implemented the single pipeline (live recording, recording import, or transcript import all converging into the same analysis flow), on-device transcription, and a map-reduce analysis engine to work within a local model's smaller context window — plus a template fallback for devices without Apple Intelligence, so the app never fails to produce a report.</p>
-              <div class="step-tags">
-                <span class="steptag">Swift</span>
-                <span class="steptag">SwiftUI</span>
-                <span class="steptag">On-device AI</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="process-step">
-            <span class="step-num">05</span>
-            <div class="step-body">
-              <h3>Benchmark-Driven Iteration</h3>
-              <p>Compared against Maze again to map gaps in the first report and prioritize: the executive summary evolved to include a session "narrative arc," and sentiment signals plus emotional highlights were added — approaching Maze's "how the session felt" read, but anchored in real transcript, with no acoustic data stored.</p>
-              <div class="step-tags">
-                <span class="steptag">Iteration</span>
-                <span class="steptag">Bilingual (PT/EN)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="process-step">
-            <span class="step-num">06</span>
-            <div class="step-body">
-              <h3>Closing the Loop</h3>
-              <p>A report alone doesn't move a roadmap — it becomes work once it reaches the people executing it. Built the Action Board to turn findings and recommendations into tasks with auto-suggested priority, plus one-click Jira Cloud integration with full session context, no manual re-typing.</p>
-              <div class="step-tags">
-                <span class="steptag">Jira API</span>
-                <span class="steptag">Workflow</span>
-              </div>
-            </div>
-          </div>
-
+  <!-- 5. APPLICATIONS -->
+  <section class="sec">
+    <div class="sec-inner">
+      <p class="sec-label">/ Applications</p>
+      <div class="sec-content">
+        <h2>Brand in use</h2>
+        <p>The identity was applied consistently across the organization's touchpoints, keeping the same visual language recognizable at every scale.</p>
+        <div class="trio-grid">
+          <img class="trio-img" src="esportemais1.jpg" alt="Esporte+ brand in use — 1" />
+          <img class="trio-img" src="esportemais2.jpg" alt="Esporte+ brand in use — 2" />
+          <img class="trio-img" src="esportemais3.jpg" alt="Esporte+ brand in use — 3" />
+        </div>
+        <div class="result-grid">
+          <img class="result-img wide" src="esportemais4.jpg" alt="Esporte+ brand in use" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RESULT -->
+  <!-- 6. FILE STRUCTURE -->
   <section class="sec">
-    <div class="result-layout">
-      <img class="result-images" src="iconproductsession.svg" alt="Product Sessions icon" style="background:#faf8f3; padding:3rem;" />
-      <div class="result-text">
-        <h2>Results</h2>
-        <p>A fully functional native macOS app end-to-end: from recording to structured report, with no manual transcription or note-taking steps.</p>
-        <p>An AI approach validated against a market benchmark (Maze), proving it's possible to get close to cloud-level report depth while keeping processing 100% local — no API cost, no participant data leaving the device.</p>
-        <p>A complete research-to-execution loop: a usability test insight becomes a trackable Jira task in one click, with no copy-pasting between tools — and a truly bilingual product, AI layer included, that adapts automatically to the user's system language.</p>
+    <div class="sec-inner">
+      <p class="sec-label">/ Delivery</p>
+      <div class="sec-content">
+        <h2>How the project was delivered</h2>
+        <p>Everything lived inside one Illustrator file, with artboards, layers, and groups structured by section — signature system, color and type specs, applied examples — each clearly labeled and grouped by family, so anyone opening the file could find their way around it.</p>
+        <p>Per the client's request, each piece was then exported individually — logo variants, color swatches, applied materials — and delivered through a shared Drive folder, rather than packaged as a reusable component library in Figma or Illustrator; that wasn't part of what this project asked for.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CLOSING -->
+  <section class="sec">
+    <div class="sec-inner">
+      <p class="sec-label">/ Closing</p>
+      <div class="sec-content">
+        <h2>What this project shaped</h2>
+        <p>Since launch, the new identity has been carried across the Association's events and even into the city of Porto Alegre's own advertising for the cause — proof that a documented, rule-based system travels further than a one-off logo file ever could.</p>
+        <p>Esporte+ was where I first worked hands-on with designing a visual identity as a rule-based system — variants, clear space, minimum sizes, combined signatures — rather than a one-off logo file. That systemic way of thinking is the same one I now apply to component-based work in Figma, just with a different file format behind it.</p>
       </div>
     </div>
   </section>
@@ -647,22 +632,6 @@
       <a href="index.html#projects">View all →</a>
     </div>
     <div class="other-grid">
-
-      <a class="other-card" href="project.html">
-        <div class="other-card-cover-placeholder">
-          <img src="coveravoportfolio.png" alt="Avo Tracker" />
-        </div>
-        <div class="other-card-body">
-          <p class="other-card-meta">iOS App · 2025</p>
-          <h3 class="other-card-title">Avo Tracker</h3>
-          <p class="other-card-desc">A health tracking app that connects meal records with symptom data to help users identify food triggers.</p>
-          <div class="other-tags">
-            <span class="otag">Swift</span>
-            <span class="otag">Product Design</span>
-            <span class="otag">App Store</span>
-          </div>
-        </div>
-      </a>
 
       <a class="other-card" href="nikki.html">
         <div class="other-card-cover-placeholder">
@@ -676,6 +645,22 @@
             <span class="otag">Swift</span>
             <span class="otag">Reality Composer</span>
             <span class="otag">Product Design</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="other-card" href="elasnomei.html">
+        <div class="other-card-cover-placeholder">
+          <img src="coverelasnomeiportfolio.png" alt="Elas no MEI" />
+        </div>
+        <div class="other-card-body">
+          <p class="other-card-meta">Mobile App · Educational · 2025</p>
+          <h3 class="other-card-title">Elas no MEI</h3>
+          <p class="other-card-desc">An educational app that transforms the MEI formalization process into an intuitive, supportive, and human-centered journey built specifically for women.</p>
+          <div class="other-tags">
+            <span class="otag">UX/UI Design</span>
+            <span class="otag">Inclusive Design</span>
+            <span class="otag">Educational</span>
           </div>
         </div>
       </a>
