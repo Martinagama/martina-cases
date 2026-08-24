@@ -118,6 +118,8 @@
     @media (max-width: 768px) {
       .sec-inner { grid-template-columns: 1fr; gap: 1.5rem; }
       .result-layout, .result-layout.rev { grid-template-columns: 1fr; gap: 1.5rem; }
+      .result-layout.rev .result-images { order: 1; }
+      .result-layout.rev .result-text { order: 2; }
       .sec-label { position: static; }
       .project-meta-grid { grid-template-columns: repeat(2, auto); gap: 2rem; }
       .features-grid { grid-template-columns: 1fr 1fr; }
