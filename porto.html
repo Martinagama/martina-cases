@@ -181,8 +181,14 @@
       line-height: 1.4;
     }
     @media (max-width: 768px) {
-      .recognition-badge { top: 12px; right: 12px; max-width: 220px; padding: 10px 14px; }
-      .recognition-badge-title { font-size: 15px; }
+      .project-cover-placeholder { aspect-ratio: 4/3; }
+      .recognition-badge { top: 10px; right: 10px; left: 10px; max-width: none; padding: 10px 14px; }
+      .recognition-badge-tag { font-size: 9px; padding: 3px 8px; margin-bottom: 6px; }
+      .recognition-badge-title { font-size: 14px; margin-bottom: 2px; }
+      .recognition-badge-desc { font-size: 11px; line-height: 1.35; }
+    }
+    @media (max-width: 480px) {
+      .project-cover-placeholder { aspect-ratio: 1/1; }
     }
 
     /* ── SECTIONS ── */
