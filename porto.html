@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Porto — Martina Gama</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%23FBFBFB%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2743%27%20font-family%3D%27Snell%20Roundhand%2C%20Bradley%20Hand%2C%20cursive%2C%20serif%27%20font-size%3D%2728%27%20font-weight%3D%27700%27%20fill%3D%27%231a1a2e%27%20text-anchor%3D%27middle%27%3EMG%3C/text%3E%3C/svg%3E" />
+  <style>
+    @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/PlayfairDisplay.woff2') format('woff2'); }
+    @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/PlayfairDisplay.woff2') format('woff2'); }
+    @font-face { font-family: 'Caveat'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/Caveat.woff2') format('woff2'); }
+    @font-face { font-family: 'Caveat'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/Caveat.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300; font-display: swap; src: url('fonts/Inter.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/Inter.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/Inter.woff2') format('woff2'); }
+  </style>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FFFFFF;
+      --bg-white: #ffffff;
+      --text: #1a1a2e;
+      --muted: #6b6b7b;
+      --navy: #1a1a5e;
+      --navy-mid: #2d2d7a;
+      --border: rgba(0,0,0,0.09);
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-hand: 'Caveat', cursive;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 5vw;
+      background: rgba(251,251,251,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .nav-logo {
+      font-family: var(--font-hand);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 18px;
+      background: var(--bg-white);
+      border-radius: 20px;
+      color: var(--text);
+      text-decoration: none;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+    }
+
+    /* ── HERO PROJECT ── */
+    .project-hero {
+      padding: 9rem 5vw 2rem;
+    }
+    .project-type {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .project-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 6vw, 80px);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+      max-width: 900px;
+    }
+    .project-intro-text {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: none;
+      margin-bottom: 2.5rem;
+    }
+    .project-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 3rem;
+      justify-content: start;
+      padding-top: 2rem;
+      border-top: 0.5px solid var(--border);
+    }
+    .meta-item {}
+    .meta-key {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .meta-val {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+    .meta-val.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .mtag {
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(26,26,94,0.07);
+      color: var(--navy-mid);
+      font-weight: 500;
+    }
+
+    /* ── COVER IMAGE ── */
+    .project-cover-placeholder {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/8;
+      background: linear-gradient(135deg, #e8e6e0 0%, #d4d0c8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-hand);
+      font-size: 24px;
+      color: var(--muted);
+      margin-top: 0;
+    }
+    .recognition-badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px 20px;
+      max-width: 280px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+    }
+    .recognition-badge-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--navy);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .recognition-badge-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .recognition-badge-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    @media (max-width: 768px) {
+      .recognition-badge { top: 12px; right: 12px; max-width: 220px; padding: 10px 14px; }
+      .recognition-badge-title { font-size: 15px; }
+    }
+
+    /* ── SECTIONS ── */
+    .sec {
+      padding: 0 5vw;
+      margin-top: 86px;
+    }
+    .sec-inner {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .sec-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      padding-top: 6px;
+      position: sticky;
+      top: 5rem;
+    }
+    .sec-content h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .sec-content p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      max-width: 680px;
+    }
+    .sec-content p:last-child { margin-bottom: 0; }
+    .sec-content .todo {
+      font-style: italic;
+      color: var(--navy-mid);
+      background: rgba(26,26,94,0.05);
+      border-left: 2px solid var(--navy-mid);
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      max-width: 680px;
+    }
+
+    /* Feature cards */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 0.5rem;
+    }
+    .feature-card {
+      background: var(--bg-white);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 28px rgba(26,26,94,0.07);
+    }
+    .feature-num {
+      font-family: var(--font-hand);
+      font-size: 26px;
+      color: var(--navy);
+      opacity: 0.18;
+      margin-bottom: 0.75rem;
+    }
+    .feature-card h3 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .feature-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0;
+      max-width: none;
+    }
+
+    /* Team */
+    .team-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 0.5rem;
+    }
+    .team-chip {
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(26,26,94,0.06);
+      color: var(--navy-mid);
+      font-weight: 500;
+    }
+
+    /* Placeholder image grid */
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .result-ph {
+      aspect-ratio: 4/3;
+      border: 1px dashed rgba(26,26,94,0.25);
+      border-radius: 14px;
+      background: rgba(26,26,94,0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--muted);
+    }
+    .result-ph.wide { grid-column: 1 / -1; aspect-ratio: 16/7; }
+    .result-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 14px;
+      display: block;
+    }
+    .result-img.wide { grid-column: 1 / -1; aspect-ratio: 16/9; }
+
+    .approach-diagram {
+      grid-column: 1 / -1;
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      margin-top: 2.5rem;
+    }
+
+    /* ── OTHER PROJECTS ── */
+    .other-projects {
+      padding: 0 5vw 6rem;
+      margin-top: 86px;
+    }
+    .other-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2.5rem;
+    }
+    .other-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 400;
+      color: var(--navy);
+    }
+    .other-header a {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .other-header a:hover { color: var(--navy); }
+    .other-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .other-card {
+      background: var(--bg-white);
+      border: 0.5px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+      display: block;
+    }
+    .other-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(26,26,94,0.09);
+    }
+    .other-card-cover-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #e8e6e0, #d4d0c8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-hand);
+      font-size: 18px;
+      color: var(--muted);
+      overflow: hidden;
+    }
+    .other-card-cover-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+    .other-card-body {
+      padding: 1.5rem;
+    }
+    .other-card-meta {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .other-card-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .other-card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .other-card-tags, .other-tags { display: flex; gap: 5px; margin-top: 10px; flex-wrap: wrap; }
+    .otag {
+      font-size: 10px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: rgba(26,26,94,0.06);
+      color: var(--navy-mid);
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem 5vw 3rem;
+      border-top: 0.5px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p { font-size: 11px; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 11px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--navy); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .project-meta-grid { grid-template-columns: repeat(2, auto); gap: 2rem; }
+      .sec-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .sec-label { position: static; }
+      .features-grid { grid-template-columns: 1fr; }
+      .result-grid { grid-template-columns: 1fr; }
+      .other-grid { grid-template-columns: 1fr; }
+      nav .nav-cta { display: none; }
+    }
+    @media (max-width: 480px) {
+      .project-meta-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">MG</a>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
+  </nav>
+
+  <!-- PROJECT HERO -->
+  <header class="project-hero">
+    <p class="project-type">/ Strategic Design · Branding · UX/UI · 2024</p>
+    <h1>Porto</h1>
+    <p class="project-intro-text">A sustainable support model offering continuous psychological care to flood survivors, built as a team project in response to the 2024 floods in Rio Grande do Sul — strategic design, service design, branding, and UX/UI, from business model to interface.</p>
+    <div class="project-meta-grid">
+      <div class="meta-item">
+        <span class="meta-key">Role</span>
+        <span class="meta-val">Strategic &amp; Visual Design</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Tools</span>
+        <span class="meta-val">Illustrator · Figma</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Deliverables</span>
+        <span class="meta-val tags">
+          <span class="mtag">Strategic Design</span>
+          <span class="mtag">Branding</span>
+          <span class="mtag">UI/UX</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- COVER -->
+  <div class="project-cover-placeholder">
+    <img src="portobanner.JPG" alt="Porto cover" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
+    <div class="recognition-badge">
+      <span class="recognition-badge-tag">Recognition</span>
+      <h3 class="recognition-badge-title">Featured Project</h3>
+      <p class="recognition-badge-desc">Selected for the FAMECOS Design Biennial — PUCRS, 2025.</p>
+    </div>
+  </div>
+
+  <!-- 1. CONTEXT -->
+  <section class="sec">
+    <div class="sec-inner">
+      <p class="sec-label">/ Context</p>
+      <div class="sec-content">
+        <h2>Anchoring new beginnings</h2>
+        <p>In 2024, Rio Grande do Sul was hit by its worst floods in recorded history, displacing hundreds of thousands of people across the state. Beyond the physical damage, the disaster left a lasting psychological toll — the kind of continuous, long-term impact that most emergency response is not built to address.</p>
+        <p>Porto is a free, online psychological support system for people affected by the floods, built around three deliverables: a digital platform, a practical guide, and a business plan for sustaining it over time — not just in the immediate aftermath, but for as long as recovery takes.</p>
+        <p>The project was selected as a Featured Project at the FAMECOS Design Biennial (PUCRS).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. WHAT WAS DESIGNED -->
+  <section class="sec">
+    <div class="sec-inner">
+      <p class="sec-label">/ Approach</p>
+      <div class="sec-content">
+        <h2>From business model to interface</h2>
+        <p>The project combined strategic and visual design into one system: a sustainable business model behind the support service, a visual identity to carry it, and a digital interface to make continuous care accessible.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-num">01</div>
+            <h3>Strategic Design</h3>
+            <p>A sustainability model built on three stakeholders: companies fund and sustain the service, government guarantees its reach and scale, and psychologists guarantee the quality of care.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">02</div>
+            <h3>Service Design</h3>
+            <p>The support system itself — how someone enters, stays connected to, and moves through ongoing care over time.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">03</div>
+            <h3>Branding</h3>
+            <p>A visual identity built around the idea of anchoring — a harbor for people rebuilding a sense of stability.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">04</div>
+            <h3>UI/UX</h3>
+            <p>A digital interface to make the support system accessible and easy to navigate.</p>
+          </div>
+        </div>
+      </div>
+      <img class="approach-diagram" src="portovenn.png" alt="Porto stakeholder model — companies, government, and psychologists" onerror="this.style.display='none'" />
+    </div>
+  </section>
+
+  <!-- 3. APPLICATIONS -->
+  <section class="sec">
+    <div class="sec-inner">
+      <p class="sec-label">/ Applications</p>
+      <div class="sec-content">
+        <h2>The system in use</h2>
+        <p>Applied across branding materials and the digital interface, keeping the same visual language legible at every touchpoint.</p>
+        <div class="result-grid">
+          <img class="result-img wide" src="portoimage4.png" alt="Porto — main interface" />
+          <img class="result-img" src="portoimage2.png" alt="Porto — application screen 2" />
+          <img class="result-img" src="portoimage3.png" alt="Porto — application screen 3" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER PROJECTS -->
+  <section class="other-projects">
+    <div class="other-header">
+      <h2>Other projects</h2>
+      <a href="index.html#projects">View all →</a>
+    </div>
+    <div class="other-grid">
+
+      <a class="other-card" href="esportemais.html">
+        <div class="other-card-cover-placeholder">
+          <img src="esportemaisatleta.png" alt="Esporte Mais" />
+        </div>
+        <div class="other-card-body">
+          <p class="other-card-meta">Brand Identity · Rebranding · 2024</p>
+          <h3 class="other-card-title">Esporte Mais</h3>
+          <p class="other-card-desc">A full visual identity for Associação Esporte+, a nonprofit transforming lives through parasport.</p>
+          <div class="other-tags">
+            <span class="otag">Logo System</span>
+            <span class="otag">Brand Guide</span>
+            <span class="otag">Illustrator</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="other-card" href="elasnomei.html">
+        <div class="other-card-cover-placeholder">
+          <img src="coverelasnomeiportfolio.png" alt="Elas no MEI" />
+        </div>
+        <div class="other-card-body">
+          <p class="other-card-meta">Mobile App · Educational · 2025</p>
+          <h3 class="other-card-title">Elas no MEI</h3>
+          <p class="other-card-desc">An educational app that transforms the MEI formalization process into an intuitive, human-centered journey built for women.</p>
+          <div class="other-tags">
+            <span class="otag">UX/UI Design</span>
+            <span class="otag">Inclusive Design</span>
+            <span class="otag">Educational</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>Martina Gama — 2026</p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/martina-nogueira-da-gama-adegas/" target="_blank">LinkedIn</a>
+      <a href="index.html">Back to home</a>
+    </div>
+  </footer>
+
+</body>
+</html>
